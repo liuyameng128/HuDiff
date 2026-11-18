@@ -344,7 +344,7 @@ if __name__ == '__main__':
             if valid_loss < best_val_loss:
                 best_val_loss, best_iter = valid_loss, it
                 logger.info(f'Bset validate loss achieved: {best_val_loss:.6f}')
-                ckpt_path = os.path.join(ckpt_dir, '%d.pt'%it)
+                ckpt_path = os.path.join(log_dir, 'best_model.pt')
                 torch.save({
                     'fineconfig': finetune_config,
                     'pretrain_config': pretrained_config,
@@ -356,5 +356,4 @@ if __name__ == '__main__':
             else:
                 logger.info(f'[Validate] Val loss is not improved. '
                             f'Best val loss: {best_val_loss:.6f} at iter {best_iter}')
-
 

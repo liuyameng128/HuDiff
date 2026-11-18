@@ -435,7 +435,10 @@ if __name__ == '__main__':
             if valid_loss < best_val_loss:
                 best_val_loss, best_iter = valid_loss, it
                 logger.info(f'Bset validate loss achieved: {best_val_loss:.6f}')
-                ckpt_path = os.path.join(ckpt_dir, '%d.pt'%it)
+                # Keep one canonical best checkpoint. This matches the public
+                # reproduction protocol and avoids writing hundreds of ~450 MB
+                # checkpoints during a multi-day pretraining run.
+                ckpt_path = os.path.join(log_dir, 'best_model.pt')
                 torch.save({
                     'config': config,
                     'model': model.state_dict(),

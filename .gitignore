@@ -1,0 +1,10 @@
+# Python bytecode and cache directories
+__pycache__/
+*.py[cod]
+
+# Released datasets and checkpoints are distributed separately
+/release_data_dir.tar.gz
+/release_data_dir/
+
+# Local training, evaluation, and smoke-test outputs
+/tmp/
