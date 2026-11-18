@@ -6,11 +6,16 @@ channels:
   - bioconda
 dependencies:
   - python=3.9
+  # PyTorch 1.13 was compiled against the NumPy 1.x C API. NumPy 2.x makes
+  # the dataset collaters fail when converting NumPy masks to tensors.
+  - numpy<2
   - pytorch=1.13.0
   - torchvision=0.14.0
   - torchaudio=0.13.0
   - pytorch-cuda=11.6
   - python-lmdb
+  # Required by ANARCI/abnumber for antibody sequence numbering.
+  - hmmer
   - abnumber
   - pip:
     - pandas

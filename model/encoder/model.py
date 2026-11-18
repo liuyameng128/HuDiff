@@ -6,9 +6,6 @@ from sequence_models.layers import PositionFeedForward, DoubleEmbedding
 from sequence_models.convolutional import ByteNetBlock, MaskedConv1d
 from .cross_attention import CrossAttNet, TransformerNet, SelfAttNet, precompute_freqs_cis
 from collections import OrderedDict
-import tempfile
-import os
-from pymol import cmd
 from abnumber import Chain
 
 # Abnativ
